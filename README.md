@@ -116,7 +116,9 @@ Public functions must be defined exactly as stated here so that objects can comm
 
 You may make any unparamaterized constructors, private functions or private data members that you wish.
 If you feel the need, you may make any additional helper classes that you want, but notify the group to their existence to avoid duplicate naming.
+
 If you would like an additional public function for a class that you are not overseeing, request it.
-if you write an additional public function or modify an existing one, notify the group and update any documentation affected.
+
+if you write an additional public function or modify an existing one, notify the group and update any documentation affected (that includes this Readme).
 
 Above all, don't mess with someone else's code. Peruse it as you wish, but do not modify code or make any comment about it unless your input is requested.
