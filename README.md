@@ -8,6 +8,7 @@ main.cpp
 	Also allows users the option to exit the program.
 
 Card -- Jeremy
+
 	A simple class, containing two characters (the suite and face)
 
 	Public Members:
@@ -41,6 +42,7 @@ Card -- Jeremy
 		Sets one card equal to the other
 
 Deck -- Trevor
+
 	An object containing a deck of cards.
 
 	Public Functions:
@@ -62,6 +64,7 @@ Deck -- Trevor
 			Replenishes the deck (back to one deck)
 
 Hand -- Angela
+
 	An object containing a smaller group of cards
 
 	Public Functions:
@@ -89,6 +92,7 @@ Hand -- Angela
 
 
 Blackjack -- Alex
+
 	Object containing the game of blackjack (No return value)
 	At the end of the game, prompt user to play another hand or return to the main menu
 	Dealer stands on soft 18, hard 17, and anything greater; hits on anything else
@@ -98,6 +102,7 @@ Blackjack -- Alex
 			Instantiates the game
 
 War -- Jeremy
+
 	An object containing the game of war
 	At the end of the game, return to the main menu
 
