@@ -1,13 +1,19 @@
-#include "Card.cpp"
+#include "Card.h"
 
 // STD I/O
 #include <iostream>
 
 using namespace std;
 
+Card::Card(char face, char suite)
+{
+	this->face = face;
+	this->suite = suite;
+}
+
 void Card::print()
 {
-	if (isnum(face))
+	if (isdigit(face))
 	{
 		if (face != '1')
 		{
@@ -57,12 +63,12 @@ void Card::print()
 	}
 }
 
-bool Card::faceCompare(bool comp)
+bool Card::faceCompare(bool lessThan, const Card rhs)
 {
 	// rhs is not a face card
-	if (isnum(rhs.face))
+	if (isdigit(rhs.face))
 	{
-		return comp;
+		return lessThan;
 	}
 
 	// rhs is a face card
@@ -70,24 +76,24 @@ bool Card::faceCompare(bool comp)
 	{
 		if (this->face == 'J' && rhs.face != 'J')
 		{
-			return comp;
+			return lessThan;
 		}
 
 		else if (this->face == 'A')
 		{
-			return !comp;
+			return !lessThan;
 		}
 
 		else if (this->face == 'Q')
 		{
 			if (rhs.face == 'J' || rhs.face == 'Q')
 			{
-				return !comp;
+				return !lessThan;
 			}
 
 			else
 			{
-				return comp;
+				return lessThan;
 			}
 		}
 
@@ -96,38 +102,38 @@ bool Card::faceCompare(bool comp)
 		{
 			if (rhs.face == 'A')
 			{
-				return comp;
+				return lessThan;
 			}
 
 			else
 			{
-				return !comp;
+				return !lessThan;
 			}
 		}
 	}
 }
 
-bool Card::numCompare(bool comp)
+bool Card::numCompare(bool lessThan, const Card rhs)
 {
 	// rhs is 2 through 10
-	if (isnum(rhs.face))
+	if (isdigit(rhs.face))
 	{
 		// This card is 10, rhs can't be strictly greater than
 		if (this->face == '1')
 		{
-			return !comp;
+			return !lessThan;
 		}
 
 		// rhs is 10, must be strictly greater than
 		else if (rhs.face == '1')
 		{
-			return comp;
+			return lessThan;
 		}
 		
 		// Both this and rhs are 2 through 9
 		else
 		{
-			if (comp)
+			if (lessThan)
 			{
 				return this->face < rhs.face;
 			}
@@ -141,37 +147,37 @@ bool Card::numCompare(bool comp)
 	// rhs is a face card
 	else
 	{
-		return comp;
+		return lessThan;
 	}
 }
 
 bool Card::operator<(const Card rhs)
 {
 	// This card is 2 through 10
-	if (isnum(this->face))
+	if (isdigit(this->face))
 	{
-		return numCompare(true);
+		return numCompare(true, rhs);
 	}
 
 	// This is a face card
 	else
 	{
-		return faceCompare(true);
+		return faceCompare(true, rhs);
 	}
 }
 
 bool Card::operator>(const Card rhs)
 {
 	// This card is 2 through 10
-	if (isnum(this->face))
+	if (isdigit(this->face))
 	{
-		return numCompare(false);
+		return numCompare(false, rhs);
 	}
 
 	// This is a face card
 	else
 	{
-		return faceCompare(false);
+		return faceCompare(false, rhs);
 	}
 }
 
@@ -185,7 +191,7 @@ bool Card::operator>=(const Card rhs)
 	return (*this > rhs || *this == rhs);
 }
 
-bool Card::operator==(const card rhs)
+bool Card::operator==(const Card rhs)
 {
 	return (this->face == rhs.face);
 }
