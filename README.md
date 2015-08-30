@@ -3,7 +3,7 @@ Our experimental group project
 
 ----- Project Overview -----
 
-main.cpp
+main.cpp -- Angela
 
 	The main event loop of the program. Should offer users the chance to select which game they would like to play.
 	Also allows users the option to exit the program.
