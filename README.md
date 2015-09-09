@@ -42,6 +42,9 @@ Card -- Jeremy
 	void operator=(const Card rhs)
 		Sets one card equal to the other
 
+	Card(char face, char suite)
+		Parameterized constructor, takes in face and suite values
+
 Deck -- Trevor
 
 	An object containing a deck of cards.
